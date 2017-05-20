@@ -1,0 +1,34 @@
+wd="$(pwd)"
+
+# choose a suitable toolchain file for your intended platform
+# uncomment one of the following lines
+toolchain_file="" # none, build for host 
+#toolchain_file="$wd/arm-linux-gnueabihf.cmake"
+#toolchain_file="$wd/powerpc-linux-gnueabi.cmake"
+
+# choose a name for build and install directory
+# e.g. install-x86-64 or install-armhf
+install_dir="$wd/install-armhf"
+build_dir="$wd/build-armhf"
+
+eeros_source_dir="$wd/eeros"
+eeros_build_dir="$build_dir/eeros"
+
+# here you have to choose the name of all hardware libraries
+# comment out the libraries you don't need
+flink_source_dir="$wd/flinklib"
+flink_build_dir="$build_dir/flinklib"
+
+# here you have to choose the name of all hardware erros wrapper libraries
+# comment out the libraries you don't need
+flink_eeros_source_dir="$wd/flink-eeros"
+flink_eeros_build_dir="$build_dir/flink-eeros"
+#comedi_eeros_source_dir="$wd/comedi-eeros"
+#comedi_eeros_build_dir="$build_dir/comedi-eeros"
+sim_eeros_source_dir="$wd/sim-eeros"
+sim_eeros_build_dir="$build_dir/sim-eeros"
+
+# enter the name of your application project directory
+application_source_dir="$wd/myApp"
+application_build_dir="$build_dir/myApp"
+
