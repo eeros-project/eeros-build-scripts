@@ -2,14 +2,18 @@ wd="$(pwd)"
 
 # choose a suitable toolchain file for your intended platform
 # uncomment one of the following lines
-toolchain_file="" # none, build for host 
-#toolchain_file="$wd/arm-linux-gnueabihf.cmake"
-#toolchain_file="$wd/powerpc-linux-gnueabi.cmake"
+toolchain_file="$wd/x86.cmake"                          # build for host 
+#toolchain_file="$wd/arm-linux-gnueabihf.cmake"         # build for arm 
+#toolchain_file="$wd/powerpc-linux-gnueabi.cmake"       # build for ppc 
 
 # choose a name for build and install directory
 # e.g. install-x86-64 or install-armhf
-install_dir="$wd/install-armhf"
-build_dir="$wd/build-armhf"
+install_dir="$wd/install-x86"
+build_dir="$wd/build-x86"
+#install_dir="$wd/install-armhf"
+#build_dir="$wd/build-armhf"
+#install_dir="$wd/install-ppc"
+#build_dir="$wd/build-ppc"
 
 eeros_source_dir="$wd/eeros"
 eeros_build_dir="$build_dir/eeros"
