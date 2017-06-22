@@ -71,13 +71,15 @@ if [ ! -z ${sim_eeros_source_dir+x} ]; then
 fi
 
 
-mkdir -p $application_build_dir
-pushd $application_build_dir
-cmake	-DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
+if [ ! -z ${application_source_dir+x} ]; then
+  mkdir -p $application_build_dir
+  pushd $application_build_dir
+  cmake	-DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
         -DCMAKE_INSTALL_PREFIX=$install_dir \
 	-DCMAKE_BUILD_TYPE=Release \
 	$application_source_dir
-make
-popd
+  make
+  popd
+fi
 
 
