@@ -25,7 +25,7 @@ if [ ! -z ${flink_source_dir+x} ]; then
   cmake -DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
         -DCMAKE_INSTALL_PREFIX=$install_dir \
         -DCMAKE_BUILD_TYPE=Release \
-        $eeros_source_dir
+        $flink_source_dir
   make
   make install
   popd
