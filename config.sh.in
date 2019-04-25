@@ -2,7 +2,7 @@ wd="$(pwd)"
 
 # choose a suitable toolchain file for your intended platform
 # uncomment one of the following lines
-toolchain_file="$wd/x86.cmake"                          # build for host 
+#toolchain_file="$wd/x86.cmake"                         # build for host 
 #toolchain_file="$wd/arm-linux-gnueabihf.cmake"         # build for arm 
 #toolchain_file="$wd/powerpc-linux-gnueabi.cmake"       # build for ppc 
 
@@ -25,14 +25,16 @@ flink_build_dir="$build_dir/flinklib"
 
 # here you have to choose the name of all hardware erros wrapper libraries
 # comment out the libraries you don't need
+sim_eeros_source_dir="$wd/sim-eeros"
+sim_eeros_build_dir="$build_dir/sim-eeros"
 flink_eeros_source_dir="$wd/flink-eeros"
 flink_eeros_build_dir="$build_dir/flink-eeros"
 #comedi_eeros_source_dir="$wd/comedi-eeros"
 #comedi_eeros_build_dir="$build_dir/comedi-eeros"
-sim_eeros_source_dir="$wd/sim-eeros"
-sim_eeros_build_dir="$build_dir/sim-eeros"
+#ros_eeros_source_dir="$wd/ros-eeros"
+#ros_eeros_build_dir="$build_dir/ros-eeros"
 
 # enter the name of your application project directory
-application_source_dir="$wd/myApp"
-application_build_dir="$build_dir/myApp"
+application_source_dir="$wd/simple-motor-control"
+application_build_dir="$build_dir/simple-motor-control"
 

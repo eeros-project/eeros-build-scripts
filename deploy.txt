@@ -2,5 +2,5 @@ install-armhf/lib/libeeros.so.0.0.0.0
 install-armhf/lib/libflinkeeros.so
 install-armhf/lib/libflink.so
 
-myApp/HwConfigMyApp.json
-build-armhf/myApp/myApp
+build-armhf/simple-motor-control/HalFlink.json
+build-armhf/simple-motor-control/simpleMotorControl

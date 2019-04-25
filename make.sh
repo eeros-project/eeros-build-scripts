@@ -71,6 +71,18 @@ if [ ! -z ${sim_eeros_source_dir+x} ]; then
 fi
 
 
+if [ ! -z ${ros_eeros_source_dir+x} ]; then
+  mkdir -p $ros_eeros_build_dir
+  pushd $ros_eeros_build_dir
+  cmake -DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
+        -DCMAKE_INSTALL_PREFIX=$install_dir \
+	-DCMAKE_BUILD_TYPE=Release \
+	$ros_eeros_source_dir
+  make
+  make install
+  popd
+fi
+
 if [ ! -z ${application_source_dir+x} ]; then
   mkdir -p $application_build_dir
   pushd $application_build_dir
