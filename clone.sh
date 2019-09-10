@@ -8,7 +8,7 @@ script_dir="$(dirname $script)"
 if [ ! -d "$eeros_source_dir" ]; then
 	git clone https://github.com/eeros-project/eeros-framework.git -o upstream "$eeros_source_dir"
 	pushd "$eeros_source_dir"
-	git checkout master
+	git checkout $eeros_github_version
 	popd
 fi
 

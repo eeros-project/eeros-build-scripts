@@ -38,6 +38,7 @@ if [ ! -z ${flink_eeros_source_dir+x} ]; then
   cmake -DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
         -DCMAKE_INSTALL_PREFIX=$install_dir \
         -DCMAKE_BUILD_TYPE=Release \
+        -DREQUIRED_EEROS_VERSION=$eeros_required_version \
         $flink_eeros_source_dir
   make
   make install
@@ -65,6 +66,7 @@ if [ ! -z ${sim_eeros_source_dir+x} ]; then
         -DCMAKE_INSTALL_PREFIX=$install_dir \
 	-DCMAKE_BUILD_TYPE=Release \
 	$sim_eeros_source_dir
+	    -DREQUIRED_EEROS_VERSION=$eeros_required_version \
   make
   make install
   popd

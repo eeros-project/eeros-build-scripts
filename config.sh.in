@@ -18,6 +18,10 @@ build_dir="$wd/build-x86"
 eeros_source_dir="$wd/eeros"
 eeros_build_dir="$build_dir/eeros"
 
+#choose EEROS version
+eeros_github_version=master       # Used to checkout. Any git reference (tag/branch/hash) can be set.
+eeros_required_version=1.0.0.48   # Is checked during build. Must match exactly.
+
 # here you have to choose the name of all hardware libraries
 # comment out the libraries you don't need
 flink_source_dir="$wd/flinklib"
