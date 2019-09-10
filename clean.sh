@@ -7,4 +7,3 @@ script_dir="$(dirname $script)"
 
 rm -rf "$build_dir" "$install_dir"
 
-

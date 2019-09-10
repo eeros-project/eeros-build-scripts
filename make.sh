@@ -51,8 +51,8 @@ if [ ! -z ${comedi_eeros_source_dir+x} ]; then
   pushd $comedi_eeros_build_dir
   cmake -DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
         -DCMAKE_INSTALL_PREFIX=$install_dir \
-	-DCMAKE_BUILD_TYPE=Release \
-	$comedi_eeros_source_dir
+        -DCMAKE_BUILD_TYPE=Release \
+        $comedi_eeros_source_dir
   make
   make install
   popd
@@ -64,9 +64,9 @@ if [ ! -z ${sim_eeros_source_dir+x} ]; then
   pushd $sim_eeros_build_dir
   cmake -DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
         -DCMAKE_INSTALL_PREFIX=$install_dir \
-	-DCMAKE_BUILD_TYPE=Release \
-	$sim_eeros_source_dir
-	    -DREQUIRED_EEROS_VERSION=$eeros_required_version \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DREQUIRED_EEROS_VERSION=$eeros_required_version \
+        $sim_eeros_source_dir
   make
   make install
   popd
@@ -78,8 +78,8 @@ if [ ! -z ${ros_eeros_source_dir+x} ]; then
   pushd $ros_eeros_build_dir
   cmake -DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
         -DCMAKE_INSTALL_PREFIX=$install_dir \
-	-DCMAKE_BUILD_TYPE=Release \
-	$ros_eeros_source_dir
+        -DCMAKE_BUILD_TYPE=Release \
+        $ros_eeros_source_dir
   make
   make install
   popd
@@ -88,12 +88,11 @@ fi
 if [ ! -z ${application_source_dir+x} ]; then
   mkdir -p $application_build_dir
   pushd $application_build_dir
-  cmake	-DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
+  cmake -DCMAKE_TOOLCHAIN_FILE=$toolchain_file \
         -DCMAKE_INSTALL_PREFIX=$install_dir \
-	-DCMAKE_BUILD_TYPE=Release \
-	$application_source_dir
+        -DCMAKE_BUILD_TYPE=Release \
+        $application_source_dir
   make
   popd
 fi
-
 
