@@ -1,6 +1,6 @@
 #!/bin/bash
 
-target="root@192.168.7.2:/opt/eeros/"
+target=${target_username}@${target_IP_address}:${target_application_folder}
 list="deploy.txt"
 tmp=".tmp-deploy"
 
