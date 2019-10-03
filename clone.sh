@@ -6,62 +6,63 @@ script_dir="$(dirname $script)"
 . "$script_dir/config.sh.in"
 
 if [ ! -d "$eeros_source_dir" ]; then
-	git clone https://github.com/eeros-project/eeros-framework.git -o upstream "$eeros_source_dir"
-	pushd "$eeros_source_dir"
-	git checkout master
-	popd
+  git clone "$eeros_git_remote_address" -o upstream "$eeros_source_dir"
+  pushd "$eeros_source_dir"
+  git checkout "$eeros_git_version"
+  popd
 fi
 
-if [ ! -z ${flink_source_dir+x} ]; then
-	if [ ! -d "$flink_source_dir" ]; then
-		git clone https://github.com/flink-project/flinklib.git -o upstream --recursive "$flink_source_dir"
-		pushd "$flink_source_dir"
-		git checkout master
-		popd
-	fi
+if [ "$use_flink" = true ]; then
+  if [ ! -d "$flinklib_source_dir" ]; then
+    git clone "$flinklib_git_remote_address" -o upstream --recursive  "$flinklib_source_dir"
+    pushd "$flinklib_source_dir"
+    git checkout "$flinklib_git_version"
+    popd
+  fi
 fi
 
-if [ ! -z ${flink_eeros_source_dir+y} ]; then
-	if [ ! -d "$flink_eeros_source_dir" ]; then
-		git clone https://github.com/eeros-project/flink-eeros.git -o upstream "$flink_eeros_source_dir"
-		pushd "$flink_eeros_source_dir"
-		git checkout master
-		popd
-	fi
+if [ "$use_flink" = true ]; then
+  if [ ! -d "$flink_eeros_source_dir" ]; then
+    git clone "$flink_eeros_git_remote_address" -o upstream "$flink_eeros_source_dir"
+    pushd "$flink_eeros_source_dir"
+    git checkout "$flink_eeros_git_version"
+    popd
+  fi
 fi
 
-if [ ! -z ${comedi_eeros_source_dir+x} ]; then
-	if [ ! -d "$comedi_eeros_source_dir" ]; then
-		git clone https://github.com/eeros-project/comedi-eeros.git -o upstream "$comedi_eeros_source_dir"
-		pushd "$comedi_eeros_source_dir"
-		git checkout master
-		popd
-	fi
+if [ "$use_comedi" = true ]; then
+  if [ ! -d "$comedi_eeros_source_dir" ]; then
+    git clone "$comedi_eeros_git_remote_address" -o upstream "$comedi_eeros_source_dir"
+    pushd "$comedi_eeros_source_dir"
+    git checkout "$comedi_eeros_git_version"
+    popd
+  fi
 fi
 
-if [ ! -z ${sim_eeros_source_dir+x} ]; then
-	if [ ! -d "$sim_eeros_source_dir" ]; then
-		git clone https://github.com/eeros-project/sim-eeros.git -o upstream "$sim_eeros_source_dir"
-		pushd "$sim_eeros_source_dir"
-		git checkout master
-		popd
-	fi
+if [ "$use_simulator" = true ]; then
+  if [ ! -d "$sim_eeros_source_dir" ]; then
+    git clone "$sim_eeros_git_remote_address" -o upstream "$sim_eeros_source_dir"
+    pushd "$sim_eeros_source_dir"
+    git checkout "$sim_eeros_git_version"
+    popd
+  fi
 fi
 
-if [ ! -z ${ros_eeros_source_dir+x} ]; then
-	if [ ! -d "$ros_eeros_source_dir" ]; then
-		git clone https://github.com/eeros-project/ros-eeros.git -o upstream "$ros_eeros_source_dir"
-		pushd "$ros_eeros_source_dir"
-		git checkout master
-		popd
-	fi
+if [ "$use_ros" = true ]; then
+  if [ ! -d "$ros_eeros_source_dir" ]; then
+    git clone "$ros_eeros_git_remote_address" -o upstream "$ros_eeros_source_dir"
+    pushd "$ros_eeros_source_dir"
+    git checkout "$ros_eeros_git_version"
+    popd
+  fi
 fi
 
-if [ ! -z ${application_source_dir+x} ]; then
-	if [ ! -d "$application_source_dir" ]; then
-		git clone ~/Checkout/Test/simple-motor-control/.git -o upstream "$application_source_dir"
-		pushd "$application_source_dir"
-		git checkout master
-		popd
-	fi
+if [ "$use_custom_application" = true ]; then
+  if [ ! -d "$custom_application_source_dir" ]; then
+    git clone "$custom_application_git_remote_address" -o upstream "$custom_application_source_dir"
+    pushd "$custom_application_source_dir"
+    git checkout "$custom_application_git_version"
+    popd
+  fi
 fi
+
