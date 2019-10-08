@@ -115,12 +115,14 @@ if [ "$use_custom_application" = true ]; then
         -DCMAKE_BUILD_TYPE=Release \
         -DUSE_SIM="$use_simulator" \
         -DUSE_FLINK="$use_flink" \
+        -DUSE_BBBLUE="$use_bbblue" \
         -DUSE_COMEDI="$use_comedi" \
         -DUSE_ROS="$use_ros" \
         -DREQUIRED_EEROS_VERSION="$eeros_required_version" \
         -DREQUIRED_SIM_EEROS_VERSION="$sim_eeros_required_version" \
         -DREQUIRED_FLINKLIB_VERSION="$flinklib_required_version" \
         -DREQUIRED_FLINK_EEROS_VERSION="$flink_eeros_required_version" \
+        -DREQUIRED_BBBLUE_EEROS_VERSION="$bbblue_eeros_required_version" \
         -DREQUIRED_COMEDI_EEROS_VERSION="$comedi_eeros_required_version" \
         -DREQUIRED_ROS_EEROS_VERSION="$ros_eeros_required_version" \
         "$custom_application_source_dir"
