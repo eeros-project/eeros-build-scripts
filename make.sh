@@ -17,6 +17,7 @@ pushd "$eeros_build_dir"
 cmake -DCMAKE_TOOLCHAIN_FILE="$toolchain_file" \
       -DCMAKE_INSTALL_PREFIX="$install_dir" \
       -DCMAKE_BUILD_TYPE=Release \
+      -DUSE_ROS="$use_ros" \
       "$eeros_source_dir"
 make
 make install
