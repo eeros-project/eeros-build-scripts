@@ -50,6 +50,20 @@ if [ "$use_flink" = true ]; then
 fi
 
 
+if [ "$use_bbblue" = true ]; then
+  mkdir -p "$bbblue_eeros_build_dir"
+  pushd "$bbblue_eeros_build_dir"
+  cmake -DCMAKE_TOOLCHAIN_FILE="$toolchain_file" \
+        -DCMAKE_INSTALL_PREFIX="$install_dir" \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DREQUIRED_EEROS_VERSION="$eeros_required_version" \
+        "$bbblue_eeros_source_dir"
+  make
+  make install
+  popd
+fi
+
+
 if [ "$use_comedi" = true ]; then
   mkdir -p "$comedi_eeros_build_dir"
   pushd "$comedi_eeros_build_dir"

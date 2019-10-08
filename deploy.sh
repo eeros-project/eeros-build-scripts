@@ -1,5 +1,11 @@
 #!/bin/bash
 
+script="$(readlink -f $0)"
+script_dir="$(dirname $script)"
+
+. "$script_dir/config.sh.in"
+
+
 target=${target_username}@${target_IP_address}:${target_application_folder}
 list="deploy.txt"
 tmp=".tmp-deploy"
