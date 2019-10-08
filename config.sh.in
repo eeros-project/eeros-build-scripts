@@ -46,7 +46,7 @@ use_flink=false
 use_bbblue=false
 use_comedi=false
 use_ros=false
-use_custom_application=true
+use_custom_application=false
 
 custom_application_name=simple-motor-control
 
