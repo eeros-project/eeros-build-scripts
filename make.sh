@@ -55,6 +55,8 @@ if [ "$use_bbblue" = true ]; then
   mkdir -p "$bbblue_eeros_build_dir"
   pushd "$bbblue_eeros_build_dir"
   cmake -DCMAKE_TOOLCHAIN_FILE="$toolchain_file" \
+        -DADDITIONAL_INCLUDE_DIRS="$librobotcontrol_source_dir/libraries/" \
+        -DADDITIONAL_LINK_DIRS="$librobotcontrol_source_dir/libraries/" \
         -DCMAKE_INSTALL_PREFIX="$install_dir" \
         -DCMAKE_BUILD_TYPE=Release \
         -DREQUIRED_EEROS_VERSION="$eeros_required_version" \

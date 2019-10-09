@@ -54,8 +54,7 @@ install_dir="$wd"/install-x86  # other examples: $wd/install-armhf $wd/install-p
 build_dir="$wd"/build-x86      # other examples: $wd/build-armhf $wd/build-ppc
 
 toolchain_file="" # if empty string; default toolchain installed on host
-# other examples: "$wd"/x86.cmake "$wd"/arm-linux-gnueabihf.cmake
-#                 "$wd"/powerpc-linux-gnueabi.cmake
+# other examples: "$wd"/toolchainfile/arm-linux-gnueabihf-gcc-4.9.cmake
 
 
 

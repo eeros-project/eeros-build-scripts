@@ -34,7 +34,7 @@ if [ "$use_bbblue" = true ]; then
   if [ ! -d "$librobotcontrol_source_dir" ]; then
     git clone "$librobotcontrol_git_remote_address" -o upstream "$librobotcontrol_source_dir"
     pushd "$librobotcontrol_source_dir"
-    git checkout "librobotcontrol_git_version"
+    git checkout "$librobotcontrol_git_version"
     popd
   fi
 fi
