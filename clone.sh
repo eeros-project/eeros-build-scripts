@@ -30,6 +30,24 @@ if [ "$use_flink" = true ]; then
   fi
 fi
 
+if [ "$use_bbblue" = true ]; then
+  if [ ! -d "$librobotcontrol_source_dir" ]; then
+    git clone "$librobotcontrol_git_remote_address" -o upstream "$librobotcontrol_source_dir"
+    pushd "$librobotcontrol_source_dir"
+    git checkout "$librobotcontrol_git_version"
+    popd
+  fi
+fi
+
+if [ "$use_bbblue" = true ]; then
+  if [ ! -d "$bbblue_eeros_source_dir" ]; then
+    git clone "$bbblue_eeros_git_remote_address" -o upstream "$bbblue_eeros_source_dir"
+    pushd "$bbblue_eeros_source_dir"
+    git checkout "$bbblue_eeros_git_version"
+    popd
+  fi
+fi
+
 if [ "$use_comedi" = true ]; then
   if [ ! -d "$comedi_eeros_source_dir" ]; then
     git clone "$comedi_eeros_git_remote_address" -o upstream "$comedi_eeros_source_dir"

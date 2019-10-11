@@ -43,9 +43,10 @@ wd="$(pwd)"  # the working directory of the project.
 
 use_simulator=true
 use_flink=false
+use_bbblue=false
 use_comedi=false
 use_ros=false
-use_custom_application=true
+use_custom_application=false
 
 custom_application_name=simple-motor-control
 
@@ -53,8 +54,7 @@ install_dir="$wd"/install-x86  # other examples: $wd/install-armhf $wd/install-p
 build_dir="$wd"/build-x86      # other examples: $wd/build-armhf $wd/build-ppc
 
 toolchain_file="" # if empty string; default toolchain installed on host
-# other examples: "$wd"/x86.cmake "$wd"/arm-linux-gnueabihf.cmake
-#                 "$wd"/powerpc-linux-gnueabi.cmake
+# other examples: "$wd"/toolchainfile/arm-linux-gnueabihf-gcc-4.9.cmake
 
 
 
@@ -114,6 +114,27 @@ flink_eeros_build_dir="$build_dir"/flink-eeros
 
 
 
+# variables for the librobotcontrol and bbblue-eeros project
+#------------------------------------------------------------------------------
+# The "git" variables specify where the librobotcontrol and bbblue-eeros projects are cloned from
+# and what version is checheck out (any git reference (tag/branch/hash) can be set).
+# The "dir" variables specity the naming of the source and build directories.
+
+librobotcontrol_git_remote_address=https://github.com/StrawsonDesign/librobotcontrol.git
+librobotcontrol_git_version=v0.3.4
+
+bbblue_eeros_git_remote_address=https://github.com/eeros-project/bbblue-eeros.git
+bbblue_eeros_git_version=v1.1.0
+
+librobotcontrol_source_dir="$wd"/librobotcontrol
+
+bbblue_eeros_source_dir="$wd"/bbblue-eeros
+bbblue_eeros_build_dir="$build_dir"/bbblue-eeros
+
+
+
+
+
 # variables for the comedi-eeros project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the comedi-eeros project is cloned from
@@ -162,6 +183,7 @@ custom_application_build_dir="$build_dir/$custom_application_name"
 sim_eeros_required_version=0.1.0.0
 flinklib_required_version=0.1.0.0
 flink_eeros_required_version=0.2.0.0
+bbblue_eeros_required_version=1.1.0.0
 comedi_eeros_required_version=0.1.0.0
 ros_eeros_required_version=0.1.0.0
 # for the eeros project dependency, see the section "general dependencies" below.
