@@ -117,7 +117,7 @@ flink_eeros_build_dir="$build_dir"/flink-eeros
 # variables for the librobotcontrol and bbblue-eeros project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the librobotcontrol and bbblue-eeros projects are cloned from
-# and what version is checheck out (any git reference (tag/branch/hash) can be set).
+# and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "dir" variables specity the naming of the source and build directories.
 
 librobotcontrol_git_remote_address=https://github.com/StrawsonDesign/librobotcontrol.git
@@ -138,7 +138,7 @@ bbblue_eeros_build_dir="$build_dir"/bbblue-eeros
 # variables for the comedi-eeros project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the comedi-eeros project is cloned from
-# and what version is checheck out (any git reference (tag/branch/hash) can be set).
+# and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "dir" variables specity the naming of the source and build directories.
 
 comedi_eeros_git_remote_address=https://github.com/eeros-project/comedi-eeros.git
@@ -154,7 +154,7 @@ comedi_eeros_build_dir="$build_dir"/comedi-eeros
 # variables for the ros-eeros project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the ros-eeros project is cloned from
-# and what version is checheck out (any git reference (tag/branch/hash) can be set).
+# and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "dir" variables specity the naming of the source and build directories.
 
 ros_eeros_git_remote_address=https://github.com/eeros-project/ros-eeros.git
@@ -170,7 +170,7 @@ ros_eeros_build_dir="$build_dir"/ros-eeros
 # variables for the custom application project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the custom application project is cloned from
-# and what version is checheck out (any git reference (tag/branch/hash) can be set).
+# and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "required_version" variables specify the versions of the libraries
 # which must be used in the custom application project.
 
