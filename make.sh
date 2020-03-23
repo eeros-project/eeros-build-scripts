@@ -20,7 +20,7 @@ function build ()
   local flags="$@"
 
   mkdir -p "$build_dir"
-  pushd "$build_Dir"
+  pushd "$build_dir"
   cmake -DCMAKE_TOOLCHAIN_FILE="$toolchain_file" \
         -DCMAKE_INSTALL_PREFIX="$install_dir" \
         -DCMAKE_BUILD_TYPE=Release \
