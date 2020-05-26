@@ -46,6 +46,7 @@ use_flink=false
 use_bbblue=false
 use_comedi=false
 use_ros=false
+use_can=false
 use_custom_application=false
 
 custom_application_name=simple-motor-control
@@ -162,6 +163,22 @@ ros_eeros_git_version=v1.0.0
 
 ros_eeros_source_dir="$wd"/ros-eeros
 ros_eeros_build_dir="$build_dir"/ros-eeros
+
+
+
+
+
+# variables for the canopenlib project
+#------------------------------------------------------------------------------
+# The "git" variables specify where the canopenlib project is cloned from
+# and what version is checked out (any git reference (tag/branch/hash) can be set).
+# The "dir" variables specity the naming of the source and build directories.
+
+canopenlib_git_remote_address=https://github.com/ntb-ch/canopenlib.git
+canopenlib_git_version=master
+
+canopenlib_source_dir="$wd"/canopenlib
+canopenlib_build_dir="$build_dir"/canopenlib
 
 
 

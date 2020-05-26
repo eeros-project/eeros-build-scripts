@@ -75,6 +75,15 @@ if [ "$use_ros" = true ]; then
   fi
 fi
 
+if [ "$use_can" = true ]; then
+  if [ ! -d "$canopenlib_source_dir" ]; then
+    git clone "$canopenlib_git_remote_address" -o upstream "$canopenlib_source_dir"
+    pushd "$canopenlib_source_dir"
+    git checkout "$canopenlib_git_version"
+    popd
+  fi
+fi
+
 if [ "$use_custom_application" = true ]; then
   if [ ! -d "$custom_application_source_dir" ]; then
     git clone "$custom_application_git_remote_address" -o upstream "$custom_application_name"

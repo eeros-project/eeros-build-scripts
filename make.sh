@@ -24,14 +24,14 @@ function build ()
   cmake -DCMAKE_TOOLCHAIN_FILE="$toolchain_file" \
         -DCMAKE_INSTALL_PREFIX="$install_dir" \
         -DCMAKE_BUILD_TYPE=Release \
-        "$flags" \
+        $flags \
         "$source_dir"
   $MAKE
   $MAKE install
   popd
 }
 
-build "$eeros_source_dir" "$eeros_build_dir" -DUSE_ROS="$use_ros" \
+build "$eeros_source_dir" "$eeros_build_dir" "-DUSE_ROS=$use_ros -DUSE_CAN=$use_can"
 
 if [ "$use_flink" = true ]; then
   build "$flinklib_source_dir" "$flinklib_build_dir"
@@ -60,12 +60,18 @@ if [ "$use_ros" = true ]; then
 fi
 
 
+if [ "$use_can" = true ]; then
+  build "$canopenlib_source_dir" "$canopenlib_build_dir"
+fi
+
+
 if [ "$use_custom_application" = true ]; then
   build "$custom_application_source_dir" "$custom_application_build_dir" -DUSE_SIM="$use_simulator" \
                                                                          -DUSE_FLINK="$use_flink" \
                                                                          -DUSE_BBBLUE="$use_bbblue" \
                                                                          -DUSE_COMEDI="$use_comedi" \
                                                                          -DUSE_ROS="$use_ros" \
+                                                                         -DUSE_CAN="$use_can" \
                                                                          -DREQUIRED_EEROS_VERSION="$eeros_required_version" \
                                                                          -DREQUIRED_SIM_EEROS_VERSION="$sim_eeros_required_version" \
                                                                          -DREQUIRED_FLINKLIB_VERSION="$flinklib_required_version" \
