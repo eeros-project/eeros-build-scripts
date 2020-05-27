@@ -31,12 +31,20 @@ function build ()
   popd
 }
 
+
+if [ "$use_can" = true ]; then
+  build "$canopenlib_source_dir" "$canopenlib_build_dir"
+fi
+
+
 build "$eeros_source_dir" "$eeros_build_dir" "-DUSE_ROS=$use_ros -DUSE_CAN=$use_can"
+
 
 if [ "$use_flink" = true ]; then
   build "$flinklib_source_dir" "$flinklib_build_dir"
   build "$flink_eeros_source_dir" "$flink_eeros_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version"
 fi
+
 
 if [ "$use_bbblue" = true ]; then
   build "$bbblue_eeros_source_dir" "bbblue_eeros_build_dir" -DADDITIONAL_INCLUDE_DIRS="$librobotcontrol_source_dir/libraries/" \
@@ -57,11 +65,6 @@ fi
 
 if [ "$use_ros" = true ]; then
   build "$ros_eeros_source_dir" "$ros_eeros_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version"
-fi
-
-
-if [ "$use_can" = true ]; then
-  build "$canopenlib_source_dir" "$canopenlib_build_dir"
 fi
 
 
