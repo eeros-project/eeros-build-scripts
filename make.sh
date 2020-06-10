@@ -47,7 +47,7 @@ fi
 
 
 if [ "$use_bbblue" = true ]; then
-  build "$bbblue_eeros_source_dir" "bbblue_eeros_build_dir" -DADDITIONAL_INCLUDE_DIRS="$librobotcontrol_source_dir/libraries/" \
+  build "$bbblue_eeros_source_dir" "$bbblue_eeros_build_dir" -DADDITIONAL_INCLUDE_DIRS="$librobotcontrol_source_dir/libraries/" \
                                                             -DADDITIONAL_LINK_DIRS="$librobotcontrol_source_dir/libraries/" \
                                                             -DREQUIRED_EEROS_VERSION="$eeros_required_version"
 fi
