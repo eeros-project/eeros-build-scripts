@@ -100,7 +100,7 @@ sim_eeros_build_dir="$build_dir"/sim-eeros
 # The "dir" variables specity the naming of the source and build directories.
 
 flinklib_git_remote_address=https://github.com/flink-project/flinklib.git
-flinklib_git_version=master
+flinklib_git_version=v1.0.1
 
 flink_eeros_git_remote_address=https://github.com/eeros-project/flink-eeros.git
 flink_eeros_git_version=v1.0.0
