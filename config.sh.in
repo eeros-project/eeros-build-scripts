@@ -48,6 +48,9 @@ use_comedi=false
 use_ros=false
 use_can=false
 use_custom_application=false
+use_toolchain_file=false
+use_cross_compilation_environment=false
+use_ros_setup_script=false
 
 custom_application_name=simple-motor-control
 
@@ -246,4 +249,27 @@ rm_build_install_dir=false
 target_IP_address=192.168.7.2
 target_username=root
 target_application_folder=/opt/eeros/
+
+
+
+
+
+# variables for cross compilation environment
+#------------------------------------------------------------------------------
+# The "environment_setup_script" variable specifies the script of the cross
+# compilation SDK, which is sourced during running "make.sh" script. Typically,
+# the SDK script sets the needed environment variables in the current shell session.
+
+environment_setup_script=/opt/tdx-xwayland/5.0.0/environment-setup-armv7at2hf-neon-tdx-linux-gnueabi
+
+
+
+
+
+# ros setup script
+#------------------------------------------------------------------------------
+# The "ros_setup_script" variable specifies the ROS setup script which is sourced
+# during running "make.sh" script.
+
+ros_setup_script=/opt/tdx-xwayland/5.0.0/sysroots/armv7at2hf-neon-tdx-linux-gnueabi/opt/ros/melodic/setup.bash
 
