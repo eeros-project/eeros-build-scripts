@@ -19,17 +19,39 @@ function build ()
   shift 2
   local flags="$@"
 
+  if [ "$use_toolchain_file" = true ]; then
+    flags="-DCMAKE_TOOLCHAIN_FILE=$toolchain_file $flags"
+  fi
+
   mkdir -p "$build_dir"
   pushd "$build_dir"
-  cmake -DCMAKE_TOOLCHAIN_FILE="$toolchain_file" \
-        -DCMAKE_INSTALL_PREFIX="$install_dir" \
+
+  cmake -DCMAKE_INSTALL_PREFIX="$install_dir" \
         -DCMAKE_BUILD_TYPE=Release \
         $flags \
         "$source_dir"
+
   $MAKE
   $MAKE install
   popd
 }
+
+
+if [ "$use_cross_compilation_environment" = true ]; then
+  . "$environment_setup_script"
+fi
+
+
+if [ "$use_ros_setup_script" = true ]; then
+  . "$ros_setup_script"
+fi
+
+
+# workaround to correctly setup environment when both of them are used
+if [ "$use_cross_compilation_environment" = true -a "$use_ros_setup_script" = true ]; then
+  unset LD_LIBRARY_PATH
+  . "$environment_setup_script"
+fi
 
 
 if [ "$use_can" = true ]; then
