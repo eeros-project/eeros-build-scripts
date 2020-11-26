@@ -71,7 +71,7 @@ toolchain_file="" # if empty string; default toolchain installed on host
 # The "dir" variables specity the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=v1.1.0
+eeros_git_version=v1.2.0
 
 eeros_source_dir="$wd"/eeros
 eeros_build_dir="$build_dir"/eeros
@@ -218,7 +218,7 @@ ros_eeros_required_version=1.0.0.0
 # which must be used in every dependent project.
 # It is not supported to use multiple versions of the same library yet.
 
-eeros_required_version=1.1.0.0
+eeros_required_version=1.2.0.0
 
 
 
