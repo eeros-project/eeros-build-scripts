@@ -11,12 +11,11 @@
 #     "variables for the custom application project" must be set to the
 #     address of the remote git repository.
 #  2. The install and build dir names can be changed according to the
-#     target platform. Also, the toolchain file must be changed depending
-#     on the targent platform.
+#     target platform.
 #  3. Finally, the variables in the section "variables for deploy.sh script"
 #     must be set according to the target platform.
-#  4. All other variables have default values which are fine for the most
-#     of the project. For specific needs, they can also be changed.
+#  4. All other variables have default values which are fine for most
+#     of the projects. For specific needs, they can also be changed.
 #  5. The workflow will be:
 #       - The "clone.sh" script will clone all remote repositories.
 #       - The application or library is developed.
@@ -48,7 +47,6 @@ use_comedi=false
 use_ros=false
 use_can=false
 use_custom_application=false
-use_toolchain_file=false
 use_cross_compilation_environment=false
 use_ros_setup_script=false
 
@@ -56,9 +54,6 @@ custom_application_name=simple-motor-control
 
 install_dir="$wd"/install-x86  # other examples: $wd/install-armhf $wd/install-ppc
 build_dir="$wd"/build-x86      # other examples: $wd/build-armhf $wd/build-ppc
-
-toolchain_file="" # if empty string; default toolchain installed on host
-# other examples: "$wd"/toolchainfile/arm-linux-gnueabihf-gcc-4.9.cmake
 
 
 
@@ -118,19 +113,14 @@ flink_eeros_build_dir="$build_dir"/flink-eeros
 
 
 
-# variables for the librobotcontrol and bbblue-eeros project
+# variables for the bbblue-eeros project
 #------------------------------------------------------------------------------
-# The "git" variables specify where the librobotcontrol and bbblue-eeros projects are cloned from
+# The "git" variables specify where the bbblue-eeros projects are cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "dir" variables specity the naming of the source and build directories.
 
-librobotcontrol_git_remote_address=https://github.com/StrawsonDesign/librobotcontrol.git
-librobotcontrol_git_version=v0.3.4
-
 bbblue_eeros_git_remote_address=https://github.com/eeros-project/bbblue-eeros.git
-bbblue_eeros_git_version=v1.2.0
-
-librobotcontrol_source_dir="$wd"/librobotcontrol
+bbblue_eeros_git_version=master
 
 bbblue_eeros_source_dir="$wd"/bbblue-eeros
 bbblue_eeros_build_dir="$build_dir"/bbblue-eeros
@@ -260,7 +250,8 @@ target_application_folder=/opt/eeros/
 # compilation SDK, which is sourced during running "make.sh" script. Typically,
 # the SDK script sets the needed environment variables in the current shell session.
 
-environment_setup_script=/opt/tdx-xwayland/5.0.0/environment-setup-armv7at2hf-neon-tdx-linux-gnueabi
+#environment_setup_script=/opt/tdx-xwayland/5.0.0/environment-setup-armv7at2hf-neon-tdx-linux-gnueabi
+environment_setup_script=/opt/ntb-distro/1.0/environment-setup-armv7at2hf-neon-poky-linux-gnueabi
 
 
 
