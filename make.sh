@@ -40,6 +40,7 @@ function build ()
 if [ "$use_cross_compilation_environment" = true ]; then
   unset LD_LIBRARY_PATH
   . "$environment_setup_script"
+  install_dir=$SDKTARGETSYSROOT/usr
 fi
 
 

@@ -52,8 +52,15 @@ use_ros_setup_script=false
 
 custom_application_name=simple-motor-control
 
-install_dir="$wd"/install-x86  # other examples: $wd/install-armhf $wd/install-ppc
+
+# install and build dir
+#------------------------------------------------------------------------------
+# When using "cross_compilation_environment", "install_dir" is set
+# to $SDKTARGETSYSROOT/usr automatically and the following "install_dir="
+# assignment has no effect.
+
 build_dir="$wd"/build-x86      # other examples: $wd/build-armhf $wd/build-ppc
+install_dir="$wd"/install-x86  # other examples: $wd/install-armhf $wd/install-ppc
 
 
 
