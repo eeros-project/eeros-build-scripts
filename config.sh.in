@@ -5,62 +5,33 @@
 #  1. In the section "project configuration", it must be specified, which
 #     components will be used in the project. If for example the simulator
 #     is used, the variable "use_simulator" must be set to "true".
-#     If a custom application is used over a remote git repository, the
-#     variable "use_custom_application" must be set to "true.
-#     The variable "custom_application_git_remote_address" in the section
-#     "variables for the custom application project" must be set to the
-#     address of the remote git repository.
-#  2. The install and build dir names can be changed according to the
-#     target platform. Also, the toolchain file must be changed depending
-#     on the targent platform.
-#  3. Finally, the variables in the section "variables for deploy.sh script"
-#     must be set according to the target platform.
-#  4. All other variables have default values which are fine for the most
-#     of the project. For specific needs, they can also be changed.
-#  5. The workflow will be:
+#  2. If you are using ROS, you have to set the path to your ROS installation.
+#  3. The workflow will be:
 #       - The "clone.sh" script will clone all remote repositories.
-#       - The application or library is developed.
-#       - The "make.sh" script builds the whole project whith CMake and make.
-#       - The "deploy.sh" script deploys the binaries to the target. Make sure
-#         the files are specified in the file "deploy.txt".
+#       - The "make.sh" script builds the whole project whith cmake and make.
 #       - The "clean.sh" script cleans the build and install directory.
 
 
 
-
 wd="$(pwd)"  # the working directory of the project.
+install_dir="$wd"/install-x86
+build_dir="$wd"/build-x86
 
 
 
 # project configuration variables for all the scripts
 #------------------------------------------------------------------------------
 # The "use" variables specify what components will be used in the project.
-# The "custom_application_name" specifies the name of the custom application.
-# The "install_dir" variable specifies the name of the top install directory.
-# The "build_dir" variable specifies the name of the top build directory.
-# The "toolchain_file" variable specifies the toolchain file
-# for the intended platform. The file must be present in the working directory.
+# The "ros_setup_script" variable specifies the ROS setup script which is sourced
+# during running "make.sh" script. You must ensure, that its path points to
+# your ROS installation
 
 use_simulator=true
-use_flink=false
-use_bbblue=false
 use_comedi=false
-use_ros=false
-use_can=false
-use_custom_application=false
-use_toolchain_file=false
-use_cross_compilation_environment=false
+use_ros=true
 use_ros_setup_script=false
 
-custom_application_name=simple-motor-control
-
-install_dir="$wd"/install-x86  # other examples: $wd/install-armhf $wd/install-ppc
-build_dir="$wd"/build-x86      # other examples: $wd/build-armhf $wd/build-ppc
-
-toolchain_file="" # if empty string; default toolchain installed on host
-# other examples: "$wd"/toolchainfile/arm-linux-gnueabihf-gcc-4.9.cmake
-
-
+ros_setup_script=/opt/ros/kinetic/setup.bash
 
 
 
@@ -78,8 +49,6 @@ eeros_build_dir="$build_dir"/eeros
 
 
 
-
-
 # variables for the sim-eeros project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the sim_eeros project is cloned from
@@ -91,51 +60,6 @@ sim_eeros_git_version=v1.0.0
 
 sim_eeros_source_dir="$wd"/sim-eeros
 sim_eeros_build_dir="$build_dir"/sim-eeros
-
-
-
-
-
-# variables for the flinklib and flink-eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the flinklib and flink-eeros projects are cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-flinklib_git_remote_address=https://github.com/flink-project/flinklib.git
-flinklib_git_version=v1.0.1
-
-flink_eeros_git_remote_address=https://github.com/eeros-project/flink-eeros.git
-flink_eeros_git_version=v1.0.0
-
-flinklib_source_dir="$wd"/flinklib
-flinklib_build_dir="$build_dir"/flinklib
-
-flink_eeros_source_dir="$wd"/flink-eeros
-flink_eeros_build_dir="$build_dir"/flink-eeros
-
-
-
-
-
-# variables for the librobotcontrol and bbblue-eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the librobotcontrol and bbblue-eeros projects are cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-librobotcontrol_git_remote_address=https://github.com/StrawsonDesign/librobotcontrol.git
-librobotcontrol_git_version=v0.3.4
-
-bbblue_eeros_git_remote_address=https://github.com/eeros-project/bbblue-eeros.git
-bbblue_eeros_git_version=v1.2.0
-
-librobotcontrol_source_dir="$wd"/librobotcontrol
-
-bbblue_eeros_source_dir="$wd"/bbblue-eeros
-bbblue_eeros_build_dir="$build_dir"/bbblue-eeros
-
-
 
 
 
@@ -153,8 +77,6 @@ comedi_eeros_build_dir="$build_dir"/comedi-eeros
 
 
 
-
-
 # variables for the ros-eeros project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the ros-eeros project is cloned from
@@ -169,49 +91,6 @@ ros_eeros_build_dir="$build_dir"/ros-eeros
 
 
 
-
-
-# variables for the canopenlib project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the canopenlib project is cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-canopenlib_git_remote_address=https://github.com/ntb-ch/canopenlib.git
-canopenlib_git_version=master
-
-canopenlib_source_dir="$wd"/canopenlib
-canopenlib_build_dir="$build_dir"/canopenlib
-
-
-
-
-
-# variables for the custom application project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the custom application project is cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "required_version" variables specify the versions of the libraries
-# which must be used in the custom application project.
-
-custom_application_git_remote_address=https://github.com/eeros-project/simple-motor-control.git
-custom_application_git_version=v0.1.0
-
-custom_application_source_dir="$wd/$custom_application_name"
-custom_application_build_dir="$build_dir/$custom_application_name"
-
-sim_eeros_required_version=1.0.0.0
-flinklib_required_version=0.1.0.0
-flink_eeros_required_version=1.0.0.0
-bbblue_eeros_required_version=1.2.0.0
-comedi_eeros_required_version=0.2.0.0
-ros_eeros_required_version=1.0.0.0
-# for the eeros project dependency, see the section "general dependencies" below.
-
-
-
-
-
 # general dependencies
 #------------------------------------------------------------------------------
 # The "required_version" variables specify the versions of the libraries
@@ -222,54 +101,9 @@ eeros_required_version=1.2.0.0
 
 
 
-
-
 # variables for make.sh script
 #------------------------------------------------------------------------------
 # The "rm_build_install_dir" variable specifies, if the build and the install
 # directory is removed prior to a build and install run.
 
 rm_build_install_dir=false
-
-
-
-
-
-# variables for deploy.sh script
-#------------------------------------------------------------------------------
-# The "target_IP_address" variable specifies the IP address or hostname
-# of the target. The deploy script transmits the files to the target using scp.
-# The "target_username" variable specifies the user name, which is used by
-# scp when the files are transmitted. In general, it is not necessary to change
-# these values unless the network settings and/or the user name was changed on
-# the target.
-# The "target_application_folder" variable specifies the location on the
-# target, where the application will be copied to by scp.
-
-target_IP_address=192.168.7.2
-target_username=root
-target_application_folder=/opt/eeros/
-
-
-
-
-
-# variables for cross compilation environment
-#------------------------------------------------------------------------------
-# The "environment_setup_script" variable specifies the script of the cross
-# compilation SDK, which is sourced during running "make.sh" script. Typically,
-# the SDK script sets the needed environment variables in the current shell session.
-
-environment_setup_script=/opt/tdx-xwayland/5.0.0/environment-setup-armv7at2hf-neon-tdx-linux-gnueabi
-
-
-
-
-
-# ros setup script
-#------------------------------------------------------------------------------
-# The "ros_setup_script" variable specifies the ROS setup script which is sourced
-# during running "make.sh" script.
-
-ros_setup_script=/opt/tdx-xwayland/5.0.0/sysroots/armv7at2hf-neon-tdx-linux-gnueabi/opt/ros/melodic/setup.bash
-

@@ -12,42 +12,6 @@ if [ ! -d "$eeros_source_dir" ]; then
   popd
 fi
 
-if [ "$use_flink" = true ]; then
-  if [ ! -d "$flinklib_source_dir" ]; then
-    git clone "$flinklib_git_remote_address" -o upstream --recursive  "$flinklib_source_dir"
-    pushd "$flinklib_source_dir"
-    git checkout "$flinklib_git_version"
-    popd
-  fi
-fi
-
-if [ "$use_flink" = true ]; then
-  if [ ! -d "$flink_eeros_source_dir" ]; then
-    git clone "$flink_eeros_git_remote_address" -o upstream "$flink_eeros_source_dir"
-    pushd "$flink_eeros_source_dir"
-    git checkout "$flink_eeros_git_version"
-    popd
-  fi
-fi
-
-if [ "$use_bbblue" = true ]; then
-  if [ ! -d "$librobotcontrol_source_dir" ]; then
-    git clone "$librobotcontrol_git_remote_address" -o upstream "$librobotcontrol_source_dir"
-    pushd "$librobotcontrol_source_dir"
-    git checkout "$librobotcontrol_git_version"
-    popd
-  fi
-fi
-
-if [ "$use_bbblue" = true ]; then
-  if [ ! -d "$bbblue_eeros_source_dir" ]; then
-    git clone "$bbblue_eeros_git_remote_address" -o upstream "$bbblue_eeros_source_dir"
-    pushd "$bbblue_eeros_source_dir"
-    git checkout "$bbblue_eeros_git_version"
-    popd
-  fi
-fi
-
 if [ "$use_comedi" = true ]; then
   if [ ! -d "$comedi_eeros_source_dir" ]; then
     git clone "$comedi_eeros_git_remote_address" -o upstream "$comedi_eeros_source_dir"
@@ -75,21 +39,4 @@ if [ "$use_ros" = true ]; then
   fi
 fi
 
-if [ "$use_can" = true ]; then
-  if [ ! -d "$canopenlib_source_dir" ]; then
-    git clone "$canopenlib_git_remote_address" -o upstream "$canopenlib_source_dir"
-    pushd "$canopenlib_source_dir"
-    git checkout "$canopenlib_git_version"
-    popd
-  fi
-fi
-
-if [ "$use_custom_application" = true ]; then
-  if [ ! -d "$custom_application_source_dir" ]; then
-    git clone "$custom_application_git_remote_address" -o upstream "$custom_application_name"
-    pushd "$custom_application_source_dir"
-    git checkout "$custom_application_git_version"
-    popd
-  fi
-fi
 
