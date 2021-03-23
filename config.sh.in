@@ -27,8 +27,8 @@
 
 
 
-wd="$(pwd)"  # the working directory of the project.
-
+wd="$(pwd)"                 # the working directory of the project.
+build_dir="$wd"/build-armhf # build dir
 
 
 # project configuration variables for all the scripts
@@ -40,148 +40,10 @@ wd="$(pwd)"  # the working directory of the project.
 # The "toolchain_file" variable specifies the toolchain file
 # for the intended platform. The file must be present in the working directory.
 
-use_simulator=true
-use_flink=false
-use_bbblue=false
-use_comedi=false
+
 use_ros=false
-use_can=false
 use_custom_application=false
-use_cross_compilation_environment=false
 use_ros_setup_script=false
-
-custom_application_name=simple-motor-control
-
-
-# install and build dir
-#------------------------------------------------------------------------------
-# When using "cross_compilation_environment", "install_dir" is set
-# to $SDKTARGETSYSROOT/$sdk_install_dir automatically and the following "install_dir="
-# assignment has no effect. See sdk_install_dir variable in the
-# "variables for cross compilation environment" section below.
-
-build_dir="$wd"/build-x86      # other examples: $wd/build-armhf $wd/build-ppc
-install_dir="$wd"/install-x86  # other examples: $wd/install-armhf $wd/install-ppc
-
-
-
-
-
-# variables for the eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the eeros project is cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directory.
-
-eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=v1.2.0
-
-eeros_source_dir="$wd"/eeros
-eeros_build_dir="$build_dir"/eeros
-
-
-
-
-
-# variables for the sim-eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the sim_eeros project is cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directory.
-
-sim_eeros_git_remote_address=https://github.com/eeros-project/sim-eeros.git
-sim_eeros_git_version=v1.0.0
-
-sim_eeros_source_dir="$wd"/sim-eeros
-sim_eeros_build_dir="$build_dir"/sim-eeros
-
-
-
-
-
-# variables for the flinklib and flink-eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the flinklib and flink-eeros projects are cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-flinklib_git_remote_address=https://github.com/flink-project/flinklib.git
-flinklib_git_version=v1.0.1
-
-flink_eeros_git_remote_address=https://github.com/eeros-project/flink-eeros.git
-flink_eeros_git_version=v1.0.0
-
-flinklib_source_dir="$wd"/flinklib
-flinklib_build_dir="$build_dir"/flinklib
-
-flink_eeros_source_dir="$wd"/flink-eeros
-flink_eeros_build_dir="$build_dir"/flink-eeros
-
-
-
-
-
-# variables for the bbblue-eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the bbblue-eeros projects are cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-bbblue_eeros_git_remote_address=https://github.com/eeros-project/bbblue-eeros.git
-bbblue_eeros_git_version=master
-
-bbblue_eeros_source_dir="$wd"/bbblue-eeros
-bbblue_eeros_build_dir="$build_dir"/bbblue-eeros
-
-
-
-
-
-# variables for the comedi-eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the comedi-eeros project is cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-comedi_eeros_git_remote_address=https://github.com/eeros-project/comedi-eeros.git
-comedi_eeros_git_version=v0.2.0
-
-comedi_eeros_source_dir="$wd"/comedi-eeros
-comedi_eeros_build_dir="$build_dir"/comedi-eeros
-
-
-
-
-
-# variables for the ros-eeros project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the ros-eeros project is cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-ros_eeros_git_remote_address=https://github.com/eeros-project/ros-eeros.git
-ros_eeros_git_version=v1.0.0
-
-ros_eeros_source_dir="$wd"/ros-eeros
-ros_eeros_build_dir="$build_dir"/ros-eeros
-
-
-
-
-
-# variables for the canopenlib project
-#------------------------------------------------------------------------------
-# The "git" variables specify where the canopenlib project is cloned from
-# and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
-
-canopenlib_git_remote_address=https://github.com/ntb-ch/canopenlib.git
-canopenlib_git_version=master
-
-canopenlib_source_dir="$wd"/canopenlib
-canopenlib_build_dir="$build_dir"/canopenlib
-
-
 
 
 
@@ -192,12 +54,14 @@ canopenlib_build_dir="$build_dir"/canopenlib
 # The "required_version" variables specify the versions of the libraries
 # which must be used in the custom application project.
 
+custom_application_name=simple-motor-control
 custom_application_git_remote_address=https://github.com/eeros-project/simple-motor-control.git
 custom_application_git_version=v0.1.0
 
 custom_application_source_dir="$wd/$custom_application_name"
 custom_application_build_dir="$build_dir/$custom_application_name"
 
+eeros_required_version=1.2.0.0
 sim_eeros_required_version=1.0.0.0
 flinklib_required_version=0.1.0.0
 flink_eeros_required_version=1.0.0.0
@@ -205,20 +69,6 @@ bbblue_eeros_required_version=1.2.0.0
 comedi_eeros_required_version=0.2.0.0
 ros_eeros_required_version=1.0.0.0
 # for the eeros project dependency, see the section "general dependencies" below.
-
-
-
-
-
-# general dependencies
-#------------------------------------------------------------------------------
-# The "required_version" variables specify the versions of the libraries
-# which must be used in every dependent project.
-# It is not supported to use multiple versions of the same library yet.
-
-eeros_required_version=1.2.0.0
-
-
 
 
 
