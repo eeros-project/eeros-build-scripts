@@ -31,19 +31,14 @@ wd="$(pwd)"                 # the working directory of the project.
 build_dir="$wd"/build-armhf # build dir
 
 
+
 # project configuration variables for all the scripts
 #------------------------------------------------------------------------------
 # The "use" variables specify what components will be used in the project.
 # The "custom_application_name" specifies the name of the custom application.
-# The "install_dir" variable specifies the name of the top install directory.
-# The "build_dir" variable specifies the name of the top build directory.
-# The "toolchain_file" variable specifies the toolchain file
-# for the intended platform. The file must be present in the working directory.
 
-
-use_ros=false
-use_custom_application=false
-use_ros_setup_script=false
+use_ros=true
+use_custom_application=true
 
 
 
@@ -56,30 +51,23 @@ use_ros_setup_script=false
 
 custom_application_name=simple-motor-control
 custom_application_git_remote_address=https://github.com/eeros-project/simple-motor-control.git
-custom_application_git_version=v0.1.0
+custom_application_git_version=master
 
 custom_application_source_dir="$wd/$custom_application_name"
 custom_application_build_dir="$build_dir/$custom_application_name"
 
 eeros_required_version=1.2.0.0
-sim_eeros_required_version=1.0.0.0
-flinklib_required_version=0.1.0.0
-flink_eeros_required_version=1.0.0.0
 bbblue_eeros_required_version=1.2.0.0
-comedi_eeros_required_version=0.2.0.0
 ros_eeros_required_version=1.0.0.0
-# for the eeros project dependency, see the section "general dependencies" below.
 
 
 
 # variables for make.sh script
 #------------------------------------------------------------------------------
 # The "rm_build_install_dir" variable specifies, if the build and the install
-# directory is removed prior to a build and install run.
+# directory is removed prior to a build run.
 
 rm_build_install_dir=false
-
-
 
 
 
@@ -100,8 +88,6 @@ target_application_folder=/opt/eeros/
 
 
 
-
-
 # variables for cross compilation environment
 #------------------------------------------------------------------------------
 # The "environment_setup_script" variable specifies the setup script of the cross
@@ -115,8 +101,7 @@ target_application_folder=/opt/eeros/
 # where the libraries and applications (EEROS, sim-eeros, ...) are installed.
 # Typically, the default value ist fine.
 
-#environment_setup_script=/home/linuxuser/sdk/ntb-distro1.0/environment-setup-armv7at2hf-neon-poky-linux-gnueabi
-environment_setup_script=/opt/ntb-distro/1.0/environment-setup-armv7at2hf-neon-poky-linux-gnueabi
+environment_setup_script=/opt/ntb-distro/1.0/environment-setup-cortexa8hf-neon-poky-linux-gnueabi
 sdk_install_dir=opt/custom_install
 
 
@@ -128,5 +113,5 @@ sdk_install_dir=opt/custom_install
 # The "ros_setup_script" variable specifies the ROS setup script which is sourced
 # during running "make.sh" script.
 
-ros_setup_script=/opt/tdx-xwayland/5.0.0/sysroots/armv7at2hf-neon-tdx-linux-gnueabi/opt/ros/melodic/setup.bash
+ros_setup_script=/opt/ntb-distro/1.0/sysroots/cortexa8hf-neon-poky-linux-gnueabi/opt/ros/melodic/setup.bash
 

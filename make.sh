@@ -28,17 +28,16 @@ function build ()
         "$source_dir"
 
   $MAKE
-  $MAKE install
   popd
 }
 
 
-if [ "$use_cross_compilation_environment" = true ]; then
+#if [ "$use_cross_compilation_environment" = true ]; then
   unset LD_LIBRARY_PATH
   . "$environment_setup_script"
   install_dir="$SDKTARGETSYSROOT/$sdk_install_dir"
   echo "Due to cross compilation environment, install_dir is set to: $install_dir"
-fi
+#fi
 
 
 if [ "$use_ros" = true ]; then
@@ -47,18 +46,12 @@ fi
 
 
 # workaround to correctly setup environment when both of them are used
-if [ "$use_cross_compilation_environment" = true -a "$use_ros_setup_script" = true ]; then
+if [ "$use_cross_compilation_environment" = true -a "$use_ros" = true ]; then
   unset LD_LIBRARY_PATH
   . "$environment_setup_script"
 fi
 
 
 if [ "$use_custom_application" = true ]; then
-  build "$custom_application_source_dir" "$custom_application_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version" \
-                                                                         -DREQUIRED_SIM_EEROS_VERSION="$sim_eeros_required_version" \
-                                                                         -DREQUIRED_FLINKLIB_VERSION="$flinklib_required_version" \
-                                                                         -DREQUIRED_FLINK_EEROS_VERSION="$flink_eeros_required_version" \
-                                                                         -DREQUIRED_BBBLUE_EEROS_VERSION="$bbblue_eeros_required_version" \
-                                                                         -DREQUIRED_COMEDI_EEROS_VERSION="$comedi_eeros_required_version" \
-                                                                         -DREQUIRED_ROS_EEROS_VERSION="$ros_eeros_required_version"
+  build "$custom_application_source_dir" "$custom_application_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version" 
 fi
