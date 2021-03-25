@@ -33,7 +33,7 @@ function build ()
 }
 
 
-if [ "$use_ros_setup_script" = true ]; then
+if [ "$use_ros" = true ]; then
   . "$ros_setup_script"
 fi
 

@@ -29,9 +29,8 @@ build_dir="$wd"/build-x86
 use_simulator=true
 use_comedi=false
 use_ros=true
-use_ros_setup_script=false
 
-ros_setup_script=/opt/ros/kinetic/setup.bash
+ros_setup_script=/opt/ros/noetic/setup.bash
 
 
 
