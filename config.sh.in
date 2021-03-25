@@ -3,20 +3,17 @@
 # This file contains all configuration variables for the project.
 # Usage:
 #  1. In the section "project configuration", it must be specified, which
-#     components will be used in the project. If for example the simulator
-#     is used, the variable "use_simulator" must be set to "true".
+#     components will be used in the project. 
 #     If a custom application is used over a remote git repository, the
 #     variable "use_custom_application" must be set to "true.
 #     The variable "custom_application_git_remote_address" in the section
 #     "variables for the custom application project" must be set to the
 #     address of the remote git repository.
-#  2. The install and build dir names can be changed according to the
-#     target platform.
-#  3. Finally, the variables in the section "variables for deploy.sh script"
+#  2. The variables in the section "variables for deploy.sh script"
 #     must be set according to the target platform.
-#  4. All other variables have default values which are fine for most
+#  3. All other variables have default values which are fine for most
 #     of the projects. For specific needs, they can also be changed.
-#  5. The workflow will be:
+#  4. The workflow will be:
 #       - The "clone.sh" script will clone all remote repositories.
 #       - The application or library is developed.
 #       - The "make.sh" script builds the whole project whith CMake and make.
@@ -50,6 +47,7 @@ use_custom_application=true
 # which must be used in the custom application project.
 
 custom_application_name=simple-motor-control
+
 custom_application_git_remote_address=https://github.com/eeros-project/simple-motor-control.git
 custom_application_git_version=master
 
@@ -71,6 +69,31 @@ rm_build_install_dir=false
 
 
 
+# variables for cross compilation environment
+#------------------------------------------------------------------------------
+# The "environment_setup_script" variable specifies the setup script of the cross
+# compilation SDK, which is sourced during running "make.sh" script. Typically,
+# the SDK script sets the needed environment variables in the current shell session.
+# It makes sense to choose a SDK installation location where the user has full
+# permissions. Otherwise, make.sh needs super-user rights (sudo bash make.sh).
+# The "sdk_install_dir" variable specifies the directory in the SDK sysroot,
+# where the libraries and applications (EEROS, sim-eeros, ...) are installed.
+# Typically, the default value ist fine.
+
+environment_setup_script=/opt/ost-distro/1.0/environment-setup-cortexa8hf-neon-poky-linux-gnueabi
+sdk_install_dir=opt/custom_install
+
+
+
+# ros setup script
+#------------------------------------------------------------------------------
+# The "ros_setup_script" variable specifies the ROS setup script which is sourced
+# during running "make.sh" script if ROS is used.
+
+ros_setup_script=/opt/ost-distro/1.0/sysroots/cortexa8hf-neon-poky-linux-gnueabi/opt/ros/melodic/setup.bash
+
+
+
 # variables for deploy.sh script
 #------------------------------------------------------------------------------
 # The "target_IP_address" variable specifies the IP address or hostname
@@ -85,33 +108,4 @@ rm_build_install_dir=false
 target_IP_address=192.168.7.2
 target_username=root
 target_application_folder=/opt/eeros/
-
-
-
-# variables for cross compilation environment
-#------------------------------------------------------------------------------
-# The "environment_setup_script" variable specifies the setup script of the cross
-# compilation SDK, which is sourced during running "make.sh" script. Typically,
-# the SDK script sets the needed environment variables in the current shell session.
-# It makes sense to choose a SDK installation location where the user has full
-# permissions. Otherwise, make.sh needs super-user rights (sudo bash make.sh).
-# See the first suggestion below where the SDK is located at:
-#  /home/linuxuser/sdk/ntb-distro1.0/
-# The "sdk_install_dir" variable specifies the directory in the SDK sysroot,
-# where the libraries and applications (EEROS, sim-eeros, ...) are installed.
-# Typically, the default value ist fine.
-
-environment_setup_script=/opt/ntb-distro/1.0/environment-setup-cortexa8hf-neon-poky-linux-gnueabi
-sdk_install_dir=opt/custom_install
-
-
-
-
-
-# ros setup script
-#------------------------------------------------------------------------------
-# The "ros_setup_script" variable specifies the ROS setup script which is sourced
-# during running "make.sh" script.
-
-ros_setup_script=/opt/ntb-distro/1.0/sysroots/cortexa8hf-neon-poky-linux-gnueabi/opt/ros/melodic/setup.bash
 
