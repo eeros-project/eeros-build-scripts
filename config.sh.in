@@ -106,6 +106,6 @@ ros_setup_script=/opt/ost-distro/1.0/sysroots/cortexa8hf-neon-poky-linux-gnueabi
 # target, where the application will be copied to by scp.
 
 target_IP_address=192.168.7.2
-target_username=root
-target_application_folder=/opt/eeros/
+target_username=ost
+target_application_folder=/home/ost/
 
