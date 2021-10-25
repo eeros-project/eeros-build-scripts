@@ -177,7 +177,7 @@ ros_eeros_build_dir="$build_dir"/ros-eeros
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "dir" variables specity the naming of the source and build directories.
 
-canopenlib_git_remote_address=https://github.com/ntb-ch/canopenlib.git
+canopenlib_git_remote_address=https://gitlab.ost.ch/tech/inf/public/canopenlib.git
 canopenlib_git_version=master
 
 canopenlib_source_dir="$wd"/canopenlib
