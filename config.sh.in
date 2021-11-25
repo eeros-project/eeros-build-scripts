@@ -71,7 +71,7 @@ toolchain_file="" # if empty string; default toolchain installed on host
 # The "dir" variables specity the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=v1.2.0
+eeros_git_version=v1.3.1
 
 eeros_source_dir="$wd"/eeros
 eeros_build_dir="$build_dir"/eeros
@@ -87,7 +87,7 @@ eeros_build_dir="$build_dir"/eeros
 # The "dir" variables specity the naming of the source and build directory.
 
 sim_eeros_git_remote_address=https://github.com/eeros-project/sim-eeros.git
-sim_eeros_git_version=v1.0.0
+sim_eeros_git_version=v1.0.1
 
 sim_eeros_source_dir="$wd"/sim-eeros
 sim_eeros_build_dir="$build_dir"/sim-eeros
@@ -106,7 +106,7 @@ flinklib_git_remote_address=https://github.com/flink-project/flinklib.git
 flinklib_git_version=v1.0.1
 
 flink_eeros_git_remote_address=https://github.com/eeros-project/flink-eeros.git
-flink_eeros_git_version=v1.0.0
+flink_eeros_git_version=v1.0.1
 
 flinklib_source_dir="$wd"/flinklib
 flinklib_build_dir="$build_dir"/flinklib
@@ -162,7 +162,7 @@ comedi_eeros_build_dir="$build_dir"/comedi-eeros
 # The "dir" variables specity the naming of the source and build directories.
 
 ros_eeros_git_remote_address=https://github.com/eeros-project/ros-eeros.git
-ros_eeros_git_version=v1.0.0
+ros_eeros_git_version=v1.0.1
 
 ros_eeros_source_dir="$wd"/ros-eeros
 ros_eeros_build_dir="$build_dir"/ros-eeros
@@ -200,12 +200,12 @@ custom_application_git_version=v0.1.0
 custom_application_source_dir="$wd/$custom_application_name"
 custom_application_build_dir="$build_dir/$custom_application_name"
 
-sim_eeros_required_version=1.0.0.0
-flinklib_required_version=0.1.0.0
-flink_eeros_required_version=1.0.0.0
-bbblue_eeros_required_version=1.2.0.0
-comedi_eeros_required_version=0.2.0.0
-ros_eeros_required_version=1.0.0.0
+sim_eeros_required_version=1.0
+flinklib_required_version=1.0
+flink_eeros_required_version=1.0
+bbblue_eeros_required_version=1.2
+comedi_eeros_required_version=0.2
+ros_eeros_required_version=1.0
 # for the eeros project dependency, see the section "general dependencies" below.
 
 
@@ -218,7 +218,7 @@ ros_eeros_required_version=1.0.0.0
 # which must be used in every dependent project.
 # It is not supported to use multiple versions of the same library yet.
 
-eeros_required_version=1.2.0.0
+eeros_required_version=1.3
 
 
 
