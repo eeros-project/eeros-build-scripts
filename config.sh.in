@@ -34,7 +34,8 @@ build_dir="$wd"/build-armhf # build dir
 # The "use" variables specify what components will be used in the project.
 # The "custom_application_name" specifies the name of the custom application.
 
-use_ros=true
+use_ros=false
+use_ros2=false
 use_custom_application=true
 
 
@@ -54,9 +55,9 @@ custom_application_git_version=master
 custom_application_source_dir="$wd/$custom_application_name"
 custom_application_build_dir="$build_dir/$custom_application_name"
 
-eeros_required_version=1.3
+eeros_required_version=1.4
 bbblue_eeros_required_version=1.3
-ros_eeros_required_version=1.0
+ros_eeros_required_version=2.0
 
 
 

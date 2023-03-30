@@ -40,13 +40,13 @@ function build ()
 #fi
 
 
-if [ "$use_ros" = true ]; then
+if [ "$use_ros" = true ] || [ "$use_ros2" = true ]; then
   . "$ros_setup_script"
 fi
 
 
 # workaround to correctly setup environment when both of them are used
-if [ "$use_cross_compilation_environment" = true -a "$use_ros" = true ]; then
+if [ "$use_cross_compilation_environment" = true && [["$use_ros" = true ] || ["$use_ros2" = true ]]; then
   unset LD_LIBRARY_PATH
   . "$environment_setup_script"
 fi
