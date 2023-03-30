@@ -46,7 +46,7 @@ fi
 
 
 # workaround to correctly setup environment when both of them are used
-if [ "$use_cross_compilation_environment" = true && [["$use_ros" = true ] || ["$use_ros2" = true ]]; then
+if [ "$use_cross_compilation_environment" = true ] && [["$use_ros" = true ] || ["$use_ros2" = true ]]; then
   unset LD_LIBRARY_PATH
   . "$environment_setup_script"
 fi
