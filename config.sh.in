@@ -29,6 +29,7 @@ build_dir="$wd"/build-x86
 use_simulator=true
 use_comedi=false
 use_ros=true
+use_ros2=false
 
 ros_setup_script=/opt/ros/noetic/setup.bash
 
@@ -41,7 +42,7 @@ ros_setup_script=/opt/ros/noetic/setup.bash
 # The "dir" variables specity the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=v1.3.1
+eeros_git_version=v1.4.0
 
 eeros_source_dir="$wd"/eeros
 eeros_build_dir="$build_dir"/eeros
@@ -83,7 +84,7 @@ comedi_eeros_build_dir="$build_dir"/comedi-eeros
 # The "dir" variables specity the naming of the source and build directories.
 
 ros_eeros_git_remote_address=https://github.com/eeros-project/ros-eeros.git
-ros_eeros_git_version=v1.0.1
+ros_eeros_git_version=v2.0.0
 
 ros_eeros_source_dir="$wd"/ros-eeros
 ros_eeros_build_dir="$build_dir"/ros-eeros
@@ -96,7 +97,7 @@ ros_eeros_build_dir="$build_dir"/ros-eeros
 # which must be used in every dependent project.
 # It is not supported to use multiple versions of the same library yet.
 
-eeros_required_version=1.3
+eeros_required_version=1.4
 
 
 
