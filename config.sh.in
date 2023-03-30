@@ -28,7 +28,7 @@ build_dir="$wd"/build-x86
 
 use_simulator=true
 use_comedi=false
-use_ros=true
+use_ros=false
 use_ros2=false
 
 ros_setup_script=/opt/ros/noetic/setup.bash
