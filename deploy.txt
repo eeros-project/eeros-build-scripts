@@ -1,2 +1,2 @@
-build-armhf/simple-motor-control/simpleMotorControl
-build-armhf/simple-motor-control/HwConfigBBBlue.json
+../simple-motor-control/build-armhf/simpleMotorControl
+../simple-motor-control/build-armhf/HwConfigBBBlue.json
