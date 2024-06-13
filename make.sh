@@ -38,6 +38,11 @@ if [ "$use_ros" = true ] || [ "$use_ros2" = true ]; then
 fi
 
 
+if [ "$use_can" = true ]; then
+  build "$canopen_source_dir" "$canopen_build_dir"
+fi
+
+
 build "$eeros_source_dir" "$eeros_build_dir" "-DUSE_ROS=$use_ros" "-DUSE_ROS2=$use_ros2" "-DUSE_CAN=$use_can"
 
 
@@ -48,11 +53,6 @@ fi
 
 if [ "$use_simulator" = true ]; then
   build "$sim_eeros_source_dir" "$sim_eeros_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version"
-fi
-
-
-if [ "$use_can" = true ]; then
-  build "$canopen_source_dir" "$canopen_build_dir"
 fi
 
 

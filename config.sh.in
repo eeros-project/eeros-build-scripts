@@ -43,7 +43,7 @@ ros_setup_script=/opt/ros/noetic/setup.bash
 # The "dir" variables specity the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=master
+eeros_git_version=v1.4.1
 
 eeros_source_dir="$wd"/eeros
 eeros_build_dir="$build_dir"/eeros
