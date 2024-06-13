@@ -30,6 +30,15 @@ if [ "$use_simulator" = true ]; then
   fi
 fi
 
+if [ "$use_can" = true ]; then
+  if [ ! -d "$canopen_source_dir" ]; then
+    git clone "$canopen_git_remote_address" -o upstream "$canopen_source_dir"
+    pushd "$canopen_source_dir"
+    git checkout "$canopen_git_version"
+    popd
+  fi
+fi
+
 if [ "$use_ros" = true ]; then
   if [ ! -d "$ros_eeros_source_dir" ]; then
     git clone "$ros_eeros_git_remote_address" -o upstream "$ros_eeros_source_dir"
