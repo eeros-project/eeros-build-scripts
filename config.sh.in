@@ -171,17 +171,17 @@ ros_eeros_build_dir="$build_dir"/ros-eeros
 
 
 
-# variables for the canopenlib project
+# variables for the canopen project
 #------------------------------------------------------------------------------
-# The "git" variables specify where the canopenlib project is cloned from
+# The "git" variables specify where the canopen project is cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "dir" variables specity the naming of the source and build directories.
 
-canopenlib_git_remote_address=https://gitlab.ost.ch/tech/inf/public/canopenlib.git
-canopenlib_git_version=master
+canopen_git_remote_address=https://gitlab.ost.ch/tech/inf/public/canopenlib.git
+canopen_git_version=master
 
-canopenlib_source_dir="$wd"/canopenlib
-canopenlib_build_dir="$build_dir"/canopenlib
+canopen_source_dir="$wd"/canopenlib
+canopen_build_dir="$build_dir"/canopenlib
 
 
 

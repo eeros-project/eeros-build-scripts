@@ -55,7 +55,7 @@ fi
 
 
 if [ "$use_can" = true ]; then
-  build "$canopenlib_source_dir" "$canopenlib_build_dir"
+  build "$canopen_source_dir" "$canopen_build_dir"
 fi
 
 
