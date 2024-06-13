@@ -13,10 +13,10 @@ if [ ! -d "$eeros_source_dir" ]; then
 fi
 
 if [ "$use_flink" = true ]; then
-  if [ ! -d "$flinklib_source_dir" ]; then
-    git clone "$flinklib_git_remote_address" -o upstream --recursive  "$flinklib_source_dir"
-    pushd "$flinklib_source_dir"
-    git checkout "$flinklib_git_version"
+  if [ ! -d "$flink_source_dir" ]; then
+    git clone "$flink_git_remote_address" -o upstream --recursive  "$flink_source_dir"
+    pushd "$flink_source_dir"
+    git checkout "$flink_git_version"
     popd
   fi
 fi

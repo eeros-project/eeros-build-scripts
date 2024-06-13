@@ -63,7 +63,7 @@ build "$eeros_source_dir" "$eeros_build_dir" "-DUSE_ROS=$use_ros -DUSE_CAN=$use_
 
 
 if [ "$use_flink" = true ]; then
-  build "$flinklib_source_dir" "$flinklib_build_dir"
+  build "$flink_source_dir" "$flink_build_dir"
   build "$flink_eeros_source_dir" "$flink_eeros_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version"
 fi
 

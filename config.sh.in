@@ -42,12 +42,12 @@ wd="$(pwd)"  # the working directory of the project.
 # for the intended platform. The file must be present in the working directory.
 
 use_simulator=true
-use_flink=false
+use_flink=true
 use_bbblue=false
 use_comedi=false
 use_ros=false
 use_can=false
-use_custom_application=false
+use_custom_application=true
 use_toolchain_file=false
 use_cross_compilation_environment=false
 use_ros_setup_script=false
@@ -71,7 +71,7 @@ toolchain_file="" # if empty string; default toolchain installed on host
 # The "dir" variables specity the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=v1.3.3
+eeros_git_version=v1.4.1
 
 eeros_source_dir="$wd"/eeros
 eeros_build_dir="$build_dir"/eeros
@@ -87,7 +87,7 @@ eeros_build_dir="$build_dir"/eeros
 # The "dir" variables specity the naming of the source and build directory.
 
 sim_eeros_git_remote_address=https://github.com/eeros-project/sim-eeros.git
-sim_eeros_git_version=v1.0.1
+sim_eeros_git_version=v1.0.2
 
 sim_eeros_source_dir="$wd"/sim-eeros
 sim_eeros_build_dir="$build_dir"/sim-eeros
@@ -96,20 +96,20 @@ sim_eeros_build_dir="$build_dir"/sim-eeros
 
 
 
-# variables for the flinklib and flink-eeros project
+# variables for the flink and flink-eeros project
 #------------------------------------------------------------------------------
-# The "git" variables specify where the flinklib and flink-eeros projects are cloned from
+# The "git" variables specify where the flink and flink-eeros projects are cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
 # The "dir" variables specity the naming of the source and build directories.
 
-flinklib_git_remote_address=https://github.com/flink-project/flinklib.git
-flinklib_git_version=v1.0.1
+flink_git_remote_address=https://github.com/flink-project/flinklib.git
+flink_git_version=v1.1.2
 
 flink_eeros_git_remote_address=https://github.com/eeros-project/flink-eeros.git
-flink_eeros_git_version=v1.0.1
+flink_eeros_git_version=v1.0.3
 
-flinklib_source_dir="$wd"/flinklib
-flinklib_build_dir="$build_dir"/flinklib
+flink_source_dir="$wd"/flink
+flink_build_dir="$build_dir"/flink
 
 flink_eeros_source_dir="$wd"/flink-eeros
 flink_eeros_build_dir="$build_dir"/flink-eeros
@@ -128,7 +128,7 @@ librobotcontrol_git_remote_address=https://github.com/StrawsonDesign/librobotcon
 librobotcontrol_git_version=v0.3.4
 
 bbblue_eeros_git_remote_address=https://github.com/eeros-project/bbblue-eeros.git
-bbblue_eeros_git_version=v1.2.0
+bbblue_eeros_git_version=v1.3.1
 
 librobotcontrol_source_dir="$wd"/librobotcontrol
 
@@ -195,15 +195,15 @@ canopen_build_dir="$build_dir"/canopenlib
 # which must be used in the custom application project.
 
 custom_application_git_remote_address=https://github.com/eeros-project/simple-motor-control.git
-custom_application_git_version=v0.1.0
+custom_application_git_version=master
 
 custom_application_source_dir="$wd/$custom_application_name"
 custom_application_build_dir="$build_dir/$custom_application_name"
 
 sim_eeros_required_version=1.0
-flinklib_required_version=1.0
+flink_required_version=1.1
 flink_eeros_required_version=1.0
-bbblue_eeros_required_version=1.2
+bbblue_eeros_required_version=1.3
 comedi_eeros_required_version=0.2
 ros_eeros_required_version=1.0
 # for the eeros project dependency, see the section "general dependencies" below.
@@ -218,7 +218,7 @@ ros_eeros_required_version=1.0
 # which must be used in every dependent project.
 # It is not supported to use multiple versions of the same library yet.
 
-eeros_required_version=1.3
+eeros_required_version=1.4
 
 
 
