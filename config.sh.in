@@ -8,7 +8,7 @@
 #  2. If you are using ROS, you have to set the path to your ROS installation.
 #  3. The workflow will be:
 #       - The "clone.sh" script will clone all remote repositories.
-#       - The "make.sh" script builds the whole project whith cmake and make.
+#       - The "make.sh" script builds the whole project with cmake and make.
 #       - The "clean.sh" script cleans the build and install directory.
 
 
@@ -27,12 +27,12 @@ build_dir="$wd"/build-x86
 # your ROS installation
 
 use_simulator=true
-use_can=true
+use_can=false
 use_comedi=false
 use_ros=false
 use_ros2=false
 
-ros_setup_script=/opt/ros/noetic/setup.bash
+ros_setup_script=/opt/ros/foxy/setup.bash
 
 
 
@@ -40,7 +40,7 @@ ros_setup_script=/opt/ros/noetic/setup.bash
 #------------------------------------------------------------------------------
 # The "git" variables specify where the eeros project is cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directory.
+# The "dir" variables specify the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
 eeros_git_version=v1.4.1
@@ -54,7 +54,7 @@ eeros_build_dir="$build_dir"/eeros
 #------------------------------------------------------------------------------
 # The "git" variables specify where the sim_eeros project is cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directory.
+# The "dir" variables specify the naming of the source and build directory.
 
 sim_eeros_git_remote_address=https://github.com/eeros-project/sim-eeros.git
 sim_eeros_git_version=v1.0.2
@@ -68,7 +68,7 @@ sim_eeros_build_dir="$build_dir"/sim-eeros
 #------------------------------------------------------------------------------
 # The "git" variables specify where the canopen project is cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
+# The "dir" variables specify the naming of the source and build directories.
 
 canopen_git_remote_address=https://gitlab.ost.ch/tech/inf/public/canopenlib.git
 canopen_git_version=v1.0.0
@@ -82,7 +82,7 @@ canopen_build_dir="$build_dir"/canopen
 #------------------------------------------------------------------------------
 # The "git" variables specify where the comedi-eeros project is cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
+# The "dir" variables specify the naming of the source and build directories.
 
 comedi_eeros_git_remote_address=https://github.com/eeros-project/comedi-eeros.git
 comedi_eeros_git_version=v0.2.0
@@ -96,7 +96,7 @@ comedi_eeros_build_dir="$build_dir"/comedi-eeros
 #------------------------------------------------------------------------------
 # The "git" variables specify where the ros-eeros project is cloned from
 # and what version is checked out (any git reference (tag/branch/hash) can be set).
-# The "dir" variables specity the naming of the source and build directories.
+# The "dir" variables specify the naming of the source and build directories.
 
 ros_eeros_git_remote_address=https://github.com/eeros-project/ros-eeros.git
 ros_eeros_git_version=v2.0.0
