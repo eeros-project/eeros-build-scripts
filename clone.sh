@@ -39,7 +39,7 @@ if [ "$use_can" = true ]; then
   fi
 fi
 
-if [ "$use_ros" = true ]; then
+if [ "$use_ros" = true ] || [ "$use_ros2" = true ]; then
   if [ ! -d "$ros_eeros_source_dir" ]; then
     git clone "$ros_eeros_git_remote_address" -o upstream "$ros_eeros_source_dir"
     pushd "$ros_eeros_source_dir"
