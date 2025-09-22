@@ -27,7 +27,7 @@ build_dir="$wd"/build-x86
 # your ROS installation
 
 use_simulator=true
-use_can=false
+use_can=true
 use_comedi=false
 use_ros=false
 use_ros2=false
@@ -43,7 +43,7 @@ ros_setup_script=/opt/ros/foxy/setup.bash
 # The "dir" variables specify the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=v1.4.1
+eeros_git_version=v1.4.3
 
 eeros_source_dir="$wd"/eeros
 eeros_build_dir="$build_dir"/eeros
@@ -57,7 +57,7 @@ eeros_build_dir="$build_dir"/eeros
 # The "dir" variables specify the naming of the source and build directory.
 
 sim_eeros_git_remote_address=https://github.com/eeros-project/sim-eeros.git
-sim_eeros_git_version=v1.0.2
+sim_eeros_git_version=v1.0.3
 
 sim_eeros_source_dir="$wd"/sim-eeros
 sim_eeros_build_dir="$build_dir"/sim-eeros
@@ -71,7 +71,7 @@ sim_eeros_build_dir="$build_dir"/sim-eeros
 # The "dir" variables specify the naming of the source and build directories.
 
 canopen_git_remote_address=https://gitlab.ost.ch/tech/inf/public/canopenlib.git
-canopen_git_version=v1.0.0
+canopen_git_version=v1.0.2
 
 canopen_source_dir="$wd"/canopen
 canopen_build_dir="$build_dir"/canopen
@@ -99,7 +99,7 @@ comedi_eeros_build_dir="$build_dir"/comedi-eeros
 # The "dir" variables specify the naming of the source and build directories.
 
 ros_eeros_git_remote_address=https://github.com/eeros-project/ros-eeros.git
-ros_eeros_git_version=v2.0.0
+ros_eeros_git_version=v2.0.2
 
 ros_eeros_source_dir="$wd"/ros-eeros
 ros_eeros_build_dir="$build_dir"/ros-eeros
