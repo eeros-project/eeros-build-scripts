@@ -30,6 +30,15 @@ if [ "$use_simulator" = true ]; then
   fi
 fi
 
+if [ "$use_gpio" = true ]; then
+  if [ ! -d "$gpio_eeros_source_dir" ]; then
+    git clone "$gpio_eeros_git_remote_address" -o upstream "$gpio_eeros_source_dir"
+    pushd "$gpio_eeros_source_dir"
+    git checkout "$gpio_eeros_git_version"
+    popd
+  fi
+fi
+
 if [ "$use_can" = true ]; then
   if [ ! -d "$canopen_source_dir" ]; then
     git clone "$canopen_git_remote_address" -o upstream "$canopen_source_dir"

@@ -28,11 +28,12 @@ build_dir="$wd"/build-x86
 
 use_simulator=true
 use_can=true
+use_gpio=true
 use_comedi=false
 use_ros=false
-use_ros2=false
+use_ros2=true
 
-ros_setup_script=/opt/ros/foxy/setup.bash
+ros_setup_script=/opt/ros/jazzy/setup.bash
 
 
 
@@ -43,7 +44,7 @@ ros_setup_script=/opt/ros/foxy/setup.bash
 # The "dir" variables specify the naming of the source and build directory.
 
 eeros_git_remote_address=https://github.com/eeros-project/eeros-framework.git
-eeros_git_version=v1.4.3
+eeros_git_version=v1.4.4
 
 eeros_source_dir="$wd"/eeros
 eeros_build_dir="$build_dir"/eeros
@@ -78,6 +79,20 @@ canopen_build_dir="$build_dir"/canopen
 
 
 
+# variables for the gpio-eeros project
+#------------------------------------------------------------------------------
+# The "git" variables specify where the gpio_eeros project is cloned from
+# and what version is checked out (any git reference (tag/branch/hash) can be set).
+# The "dir" variables specify the naming of the source and build directory.
+
+gpio_eeros_git_remote_address=https://github.com/eeros-project/gpio-eeros.git
+gpio_eeros_git_version=v1.0.0
+
+gpio_eeros_source_dir="$wd"/gpio-eeros
+gpio_eeros_build_dir="$build_dir"/gpio-eeros
+
+
+
 # variables for the comedi-eeros project
 #------------------------------------------------------------------------------
 # The "git" variables specify where the comedi-eeros project is cloned from
@@ -99,7 +114,7 @@ comedi_eeros_build_dir="$build_dir"/comedi-eeros
 # The "dir" variables specify the naming of the source and build directories.
 
 ros_eeros_git_remote_address=https://github.com/eeros-project/ros-eeros.git
-ros_eeros_git_version=v2.0.2
+ros_eeros_git_version=v2.0.3
 
 ros_eeros_source_dir="$wd"/ros-eeros
 ros_eeros_build_dir="$build_dir"/ros-eeros

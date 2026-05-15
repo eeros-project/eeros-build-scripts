@@ -56,6 +56,11 @@ if [ "$use_simulator" = true ]; then
 fi
 
 
+if [ "$use_gpio" = true ]; then
+  build "$gpio_eeros_source_dir" "$gpio_eeros_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version"
+fi
+
+
 if [ "$use_ros" = true ] || [ "$use_ros2" = true ]; then
   build "$ros_eeros_source_dir" "$ros_eeros_build_dir" -DREQUIRED_EEROS_VERSION="$eeros_required_version"
 fi
